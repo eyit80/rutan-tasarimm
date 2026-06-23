@@ -1,0 +1,25 @@
+# Netlify yapılandırması
+# Bu dosya sitenin nasıl deploy edileceğini ve Identity'nin nasıl
+# çalışacağını belirler.
+
+[build]
+  publish = "."
+  # Statik site — build komutu yok
+
+# Identity & Git Gateway — admin paneli için zorunlu
+[build.environment]
+  NODE_VERSION = "18"
+
+# Güvenlik header'ları (opsiyonel)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# CMS admin paneli cache'lenmesin
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

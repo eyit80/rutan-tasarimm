@@ -1,0 +1,112 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://rutantasarmm.netlify.app
+display_url: https://rutantasarmm.netlify.app
+logo_url: https://rutantasarmm.netlify.app/favicon.ico
+
+locale: tr
+
+publish_mode: editorial_workflow
+
+collections:
+  # ====== FİYAT PAKETLERİ ======
+  - name: "paketler"
+    label: "Fiyat Paketleri"
+    label_singular: "Paket"
+    folder: "content/paketler"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} — {{price}} ₺"
+    fields:
+      - {label: "Paket Adı", name: "name", widget: "string"}
+      - {label: "URL slug", name: "slug", widget: "string"}
+      - {label: "Sıra", name: "order", widget: "number", default: 1}
+      - {label: "Öne Çıkan (En Popüler)?", name: "featured", widget: "boolean", default: false, required: false}
+      - {label: "Paket Açıklaması", name: "description", widget: "text"}
+      - {label: "Fiyat (₺, sadece rakam)", name: "price", widget: "number", default: 3999, value_type: "int", min: 0}
+      - {label: "Fiyat Notu (opsiyonel)", name: "note", widget: "string", required: false, default: "Tek fiyat • Şeffaf • Ek ücret yok"}
+      - label: "Özellikler"
+        name: features
+        widget: list
+        summary: "{{fields.title}}"
+        fields:
+          - {label: "Özellik Adı", name: "title", widget: "string"}
+          - {label: "Aktif mi?", name: "active", widget: "boolean", default: true}
+          - {label: "Özel Vurgu (gold/yıldız)?", name: "gold", widget: "boolean", default: false, required: false}
+      - {label: "Buton Metni", name: "buttonText", widget: "string", default: "Paketi Seç"}
+      - {label: "Buton Stili", name: "buttonStyle", widget: "select", options: ["outline","primary"], default: "outline"}
+
+  # ====== HİZMETLER ======
+  - name: "hizmetler"
+    label: "Hizmetler (Üst Bölüm)"
+    folder: "content/hizmetler"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - {label: "Hizmet Başlığı", name: "title", widget: "string"}
+      - {label: "URL slug", name: "slug", widget: "string"}
+      - {label: "İkon (emoji)", name: "icon", widget: "string", default: "⚡"}
+      - {label: "Açıklama", name: "description", widget: "text"}
+      - {label: "Sıra", name: "order", widget: "number", default: 1}
+
+  # ====== NEDEN BİZ ======
+  - name: "neden"
+    label: "Neden Biz (6 Madde)"
+    folder: "content/neden"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - {label: "Madde Başlığı", name: "title", widget: "string"}
+      - {label: "URL slug", name: "slug", widget: "string"}
+      - {label: "İkon (emoji)", name: "icon", widget: "string", default: "⚡"}
+      - {label: "Açıklama", name: "description", widget: "text"}
+      - {label: "Sıra", name: "order", widget: "number", default: 1}
+
+  # ====== MÜŞTERİ YORUMLARI ======
+  - name: "yorumlar"
+    label: "Müşteri Yorumları"
+    folder: "content/yorumlar"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{author}} — {{company}}"
+    fields:
+      - {label: "Müşteri Adı", name: "author", widget: "string"}
+      - {label: "Şirket / Ünvan", name: "company", widget: "string"}
+      - {label: "Yorum Metni", name: "quote", widget: "text"}
+      - {label: "Avatar (emoji veya initials)", name: "avatar", widget: "string", default: "🙂"}
+      - {label: "Yıldız (1-5)", name: "rating", widget: "number", default: 5, min: 1, max: 5}
+
+  # ====== SÜREÇ ADIMLARI ======
+  - name: "surec"
+    label: "Süreç Adımları (Nasıl Çalışırız)"
+    folder: "content/surec"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{step}} — {{title}}"
+    fields:
+      - {label: "Adım No (örn: 01)", name: "step", widget: "string"}
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Açıklama", name: "description", widget: "text"}
+      - {label: "Sıra", name: "order", widget: "number", default: 1}
+
+  # ====== GENEL SİTE BİLGİLERİ ======
+  - name: "ayarlar"
+    label: "Site Ayarları (Telefon, Yazılar, Başlıklar)"
+    files:
+      - name: "genel"
+        label: "Genel Site Bilgileri"
+        file: "content/ayarlar/genel.json"
+        fields:
+          - {label: "Telefon", name: "phone", widget: "string", default: "0542 415 71 74"}
+          - {label: "WhatsApp Numarası (başında 90)", name: "whatsapp", widget: "string", default: "905424157174"}
+          - {label: "E-posta", name: "email", widget: "string", default: "info@rutantasarim.com"}
+          - {label: "Hero Başlık", name: "heroTitle", widget: "string", default: "Profesyonel Web Tasarım, SEO & Google Ads"}
+          - {label: "Hero Alt Başlık", name: "heroSubtitle", widget: "text", default: "Web siteniz 4 günde yayında. Tasarım + SEO + Google Ads tek elden."}
+          - {label: "Footer Hakkımızda Yazısı", name: "footerAbout", widget: "text", default: "Profesyonel web tasarım, SEO ve Google Ads hizmetleri."}

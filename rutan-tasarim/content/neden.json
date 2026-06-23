@@ -1,0 +1,8 @@
+[
+  { "title": "4 Günde Teslim", "icon": "⚡", "description": "Sektörün en hızlı teslim süresi. Acele etmiyoruz, sadece çok iyi çalışıyoruz.", "order": 1 },
+  { "title": "Dönüşüm Odaklı", "icon": "🎯", "description": "Sadece güzel değil, satış yapan siteler tasarlıyoruz. Her piksel bir amaca hizmet eder.", "order": 2 },
+  { "title": "SEO Dahil", "icon": "🔍", "description": "Tüm sitelerimiz Google'da yükselmek için optimize edilmiş altyapıyla geliyor.", "order": 3 },
+  { "title": "%100 Özel Tasarım", "icon": "💎", "description": "Hazır tema yok. Her iş, markanızın DNA'sına göre sıfırdan tasarlanır.", "order": 4 },
+  { "title": "Şeffaf Fiyat", "icon": "🛡️", "description": "Gizli ücret yok. Paket fiyatı neyse, ödediğiniz de o. Sürpriz ek masraf yok.", "order": 5 },
+  { "title": "7/24 Destek", "icon": "🤝", "description": "Teslim sonrası da yanınızdayız. Aylarca değil, yıllarca birlikte çalışıyoruz.", "order": 6 }
+]

@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050810" />
+  <title>RUTAN TASARIM | Profesyonel Web Tasarım, SEO & Google Ads</title>
+  <meta name="description" content="Profesyonel web tasarım, e-ticaret, SEO ve Google Ads hizmetleri. 4 günde teslim, 1 yıl ücretsiz domain+hosting. Hemen teklif al: 0542 415 71 74" />
+  <meta name="keywords" content="web tasarım, profesyonel web tasarım, google ads, seo, e-ticaret, kurumsal site, web sitesi" />
+  <meta property="og:title" content="RUTAN TASARIM | Profesyonel Web Tasarım & Google Ads" />
+  <meta property="og:description" content="Profesyonel web tasarım + Google Ads + SEO. Hepsi tek elden, 4 günde teslim." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b82f6'/%3E%3Ctext x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='white' font-family='Inter,sans-serif' font-weight='800' font-size='34'%3ER%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       RUTAN TASARIM — klon + animasyonlu intro
+       ========================================================= */
+
+    /* ---------- Reset & Base ---------- */
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    body.intro-active { overflow: hidden; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; transition: color .2s ease; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    input, select, textarea { font-family: inherit; font-size: 1rem; }
+
+    /* ---------- Tokens ---------- */
+    :root {
+      --bg: #050810;
+      --bg-alt: #0a1020;
+      --surface: #0f1729;
+      --surface-2: #131c33;
+      --border: #1e2a44;
+      --border-2: #2a3856;
+      --text: #ffffff;
+      --text-2: #b8c0d4;
+      --text-3: #7a85a0;
+      --muted: #5a6478;
+      --primary: #3b82f6;
+      --primary-2: #2563eb;
+      --cyan: #06b6d4;
+      --gold: #fbbf24;
+      --green: #10b981;
+      --red: #ef4444;
+      --grad-1: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      --grad-2: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+      --grad-gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      --shadow-sm: 0 4px 16px rgba(0,0,0,.25);
+      --shadow-md: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,.5);
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --container: 1200px;
+      --container-narrow: 880px;
+      --ease: cubic-bezier(.4,0,.2,1);
+    }
+
+    /* =========================================================
+       INTRO ANİMASYONU
+       ========================================================= */
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: radial-gradient(ellipse at center, #0a1020 0%, #050810 60%, #02040a 100%);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      transition: opacity .9s cubic-bezier(.7,0,.3,1), visibility .9s;
+    }
+    .intro.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    /* Particle canvas */
+    .intro__canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Aurora / arka plan blobları */
+    .intro__aurora {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: .55;
+      pointer-events: none;
+    }
+    .intro__aurora--1 { background: #3b82f6; top: -200px; left: -200px; animation: aurora1 8s ease-in-out infinite; }
+    .intro__aurora--2 { background: #06b6d4; bottom: -200px; right: -200px; animation: aurora2 9s ease-in-out infinite; }
+    .intro__aurora--3 { background: #8b5cf6; top: 30%; right: 10%; width: 500px; height: 500px; opacity: .35; animation: aurora3 10s ease-in-out infinite; }
+    @keyframes aurora1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(80px, 60px) scale(1.1); } }
+    @keyframes aurora2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px, -80px) scale(1.15); } }
+    @keyframes aurora3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px, -50px) scale(.9); } }
+
+    /* Grid overlay */
+    .intro__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,.08) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
+    }
+
+    /* Logo container */
+    .intro__center {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      transform: scale(1);
+      animation: introZoom 5.5s cubic-bezier(.7,0,.3,1) forwards;
+    }
+    @keyframes introZoom {
+      0%   { transform: scale(.85); }
+      55%  { transform: scale(1); }
+      85%  { transform: scale(1.08); opacity: 1; }
+      100% { transform: scale(28); opacity: 0; }
+    }
+
+    /* Logo SVG reveal */
+    .intro__logo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 24px;
+      position: relative;
+    }
+    .intro__logo svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 40px rgba(59,130,246,.6));
+    }
+    /* Stroke draw efekti */
+    .draw-path {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: draw 1.4s cubic-bezier(.6,0,.3,1) .2s forwards;
+    }
+    .draw-rect {
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+      animation: draw 1.2s cubic-bezier(.6,0,.3,1) forwards;
+    }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+
+    .intro__title {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: .25em;
+      color: #fff;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .intro__title span {
+      display: inline-block;
+      transform: translateY(110%);
+      opacity: 0;
+      animation: letterIn .8s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+    @keyframes letterIn { to { transform: translateY(0); opacity: 1; } }
+
+    .intro__sub {
+      font-size: clamp(.85rem, 1.5vw, 1rem);
+      color: var(--text-3);
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      opacity: 0;
+      animation: fadeUp .9s ease 1.4s forwards;
+    }
+    .intro__tagline {
+      margin-top: 28px;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--text-2);
+      letter-spacing: .02em;
+      opacity: 0;
+      animation: fadeUp .9s ease 1.6s forwards;
+    }
+    .intro__tagline .grad-text {
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Progress bar */
+    .intro__progress {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(280px, 60vw);
+      height: 2px;
+      background: rgba(255,255,255,.08);
+      border-radius: 2px;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeUp .6s ease 1.8s forwards;
+    }
+    .intro__progress::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--grad-1);
+      transform-origin: left;
+      transform: scaleX(0);
+      animation: progress 3.2s cubic-bezier(.6,0,.3,1) .2s forwards;
+      box-shadow: 0 0 16px rgba(59,130,246,.6);
+    }
+    @keyframes progress { to { transform: scaleX(1); } }
+
+    /* Skip button */
+    .intro__skip {
+      position: absolute;
+      top: 28px;
+      right: 32px;
+      color: var(--text-3);
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.02);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      animation: fadeUp .6s ease 2.2s forwards;
+      z-index: 3;
+      transition: all .25s var(--ease);
+    }
+    .intro__skip:hover { color: var(--text); border-color: var(--primary); background: rgba(59,130,246,.08); }
+
+    /* Corner markalar */
+    .intro__corner {
+      position: absolute;
+      color: var(--text-3);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp .8s ease 2s forwards;
+    }
+    .intro__corner--tl { top: 28px; left: 32px; }
+    .intro__corner--bl { bottom: 28px; left: 32px; }
+    .intro__corner--br { bottom: 28px; right: 32px; display: flex; align-items: center; gap: 6px; }
+    .intro__corner--br .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(16,185,129,.25); animation: pulse 2s ease infinite; }
+
+    /* =========================================================
+       ANA SAYFA — body introActive iken gizli
+       ========================================================= */
+    main.site {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    main.site.is-revealed { opacity: 1; }
+
+    /* ---------- Layout ---------- */
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+    .container--narrow { max-width: var(--container-narrow); }
+    .section { padding: 100px 0; position: relative; }
+    .section--alt {
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,.08), transparent 70%),
+        var(--bg-alt);
+    }
+    .section__head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+    .eyebrow {
+      display: inline-block;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      padding: 6px 14px;
+      border: 1px solid rgba(59,130,246,.35);
+      border-radius: 999px;
+      background: rgba(59,130,246,.08);
+      margin-bottom: 18px;
+    }
+    .section__title {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 16px;
+      letter-spacing: -.02em;
+    }
+    .section__sub { font-size: 1.1rem; color: var(--text-2); margin: 0; }
+    .grad-text { background: var(--grad-1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .grad-text-2 { background: var(--grad-2); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: .95rem;
+      line-height: 1;
+      padding: 13px 22px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: all .25s var(--ease);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .btn--sm { padding: 10px 16px; font-size: .875rem; }
+    .btn--lg { padding: 16px 28px; font-size: 1rem; }
+    .btn--block { width: 100%; }
+    .btn--primary { background: var(--grad-1); color: #fff; box-shadow: 0 8px 24px rgba(59,130,246,.35); }
+    .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(59,130,246,.5); }
+    .btn--primary:active { transform: translateY(0); }
+    .btn--outline { border-color: var(--border-2); color: var(--text); background: rgba(255,255,255,.02); }
+    .btn--outline:hover { border-color: var(--primary); background: rgba(59,130,246,.08); }
+    .btn--ghost { background: rgba(255,255,255,.04); color: var(--text-2); border-color: var(--border); }
+    .btn--ghost:hover { background: rgba(255,255,255,.08); color: var(--text); }
+    .btn--whatsapp { background: #25D366; color: #fff; box-shadow: 0 8px 24px rgba(37,211,102,.35); }
+    .btn--whatsapp:hover { background: #20bd5a; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.5); }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(5,8,16,.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: all .3s var(--ease);
+    }
+    .nav.is-scrolled { background: rgba(5,8,16,.92); border-bottom-color: var(--border); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo__mark { display: inline-flex; }
+    .logo__text { display: flex; flex-direction: column; line-height: 1; }
+    .logo__text strong { font-size: 1.35rem; font-weight: 800; letter-spacing: .03em; color: var(--text); }
+    .logo__text em { font-style: normal; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-3); margin-top: 2px; }
+
+    .nav__menu { display: flex; gap: 32px; margin-left: auto; margin-right: 24px; }
+    .nav__menu a { font-size: .92rem; font-weight: 500; color: var(--text-2); transition: color .2s ease; }
+    .nav__menu a:hover { color: var(--text); }
+    .nav__menu.is-open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 76px;
+      left: 0;
+      right: 0;
+      background: rgba(5,8,16,.98);
+      padding: 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__actions { display: flex; align-items: center; gap: 10px; }
+    .nav__burger { display: none; flex-direction: column; gap: 4px; padding: 10px; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s var(--ease); }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; padding: 140px 0 80px; overflow: hidden; }
+    .hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,.07) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%);
+    }
+    .hero__canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero__glow { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; will-change: transform; }
+    .hero__glow--1 {
+      width: 500px; height: 500px;
+      background: var(--primary);
+      top: -100px; left: -150px;
+      animation: heroBlob1 12s ease-in-out infinite;
+    }
+    .hero__glow--2 {
+      width: 600px; height: 600px;
+      background: var(--cyan);
+      top: 0; right: -200px;
+      opacity: .35;
+      animation: heroBlob2 14s ease-in-out infinite;
+    }
+    .hero__glow--3 {
+      width: 350px; height: 350px;
+      background: #8b5cf6;
+      bottom: -50px; left: 40%;
+      opacity: .25;
+      animation: heroBlob3 16s ease-in-out infinite;
+    }
+    @keyframes heroBlob1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33% { transform: translate(60px, 40px) scale(1.15); }
+      66% { transform: translate(-30px, 80px) scale(.9); }
+    }
+    @keyframes heroBlob2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      40% { transform: translate(-80px, 50px) scale(1.2); }
+      70% { transform: translate(40px, -40px) scale(.95); }
+    }
+    @keyframes heroBlob3 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(50px, -60px) scale(1.1); }
+    }
+
+    /* Scanning line */
+    .hero__scan {
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,.6), rgba(6,182,212,.4), transparent);
+      box-shadow: 0 0 30px rgba(59,130,246,.5);
+      top: 0;
+      animation: scan 7s linear infinite;
+      pointer-events: none;
+      opacity: .7;
+    }
+    @keyframes scan {
+      0% { top: 0; opacity: 0; }
+      5% { opacity: .7; }
+      95% { opacity: .7; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+
+    /* Hero content reveal */
+    .hero__content { position: relative; }
+    .hero__anim {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1);
+    }
+    .hero.is-revealed .hero__anim { opacity: 1; transform: translateY(0); }
+    .hero.is-revealed .badge { transition-delay: .05s; }
+    .hero.is-revealed .hero__title { transition-delay: .2s; }
+    .hero.is-revealed .hero__sub { transition-delay: .35s; }
+    .hero.is-revealed .hero__cta { transition-delay: .5s; }
+    .hero.is-revealed .hero__stats { transition-delay: .65s; }
+
+    /* Title word reveal */
+    .hero__title .word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .hero__title .word > span {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 1s cubic-bezier(.2,.8,.2,1);
+    }
+    .hero.is-revealed .hero__title .word > span { transform: translateY(0); }
+    .hero.is-revealed .hero__title .word:nth-child(1) > span { transition-delay: .25s; }
+    .hero.is-revealed .hero__title .word:nth-child(2) > span { transition-delay: .32s; }
+    .hero.is-revealed .hero__title .word:nth-child(3) > span { transition-delay: .39s; }
+    .hero.is-revealed .hero__title .word:nth-child(4) > span { transition-delay: .46s; }
+    .hero.is-revealed .hero__title .word:nth-child(5) > span { transition-delay: .53s; }
+    .hero.is-revealed .hero__title .word:nth-child(6) > span { transition-delay: .60s; }
+    .hero.is-revealed .hero__title .word:nth-child(7) > span { transition-delay: .67s; }
+    .hero.is-revealed .hero__title .word:nth-child(8) > span { transition-delay: .74s; }
+
+    /* CTA button shine effect */
+    .hero__cta .btn--primary { position: relative; overflow: hidden; }
+    .hero__cta .btn--primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+      animation: btnShine 3.5s ease-in-out infinite;
+    }
+    @keyframes btnShine {
+      0% { left: -100%; }
+      50%, 100% { left: 200%; }
+    }
+
+    /* Stat counter pop */
+    .stat {
+      opacity: 0;
+      transform: scale(.5);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .hero.is-revealed .stat { opacity: 1; transform: scale(1); }
+    .hero.is-revealed .stat:nth-child(1) { transition-delay: .75s; }
+    .hero.is-revealed .stat:nth-child(2) { transition-delay: .85s; }
+    .hero.is-revealed .stat:nth-child(3) { transition-delay: .95s; }
+    .hero.is-revealed .stat:nth-child(4) { transition-delay: 1.05s; }
+    .stat__num { display: inline-block; }
+
+    /* Hero visual reveal */
+    .hero__visual {
+      opacity: 0;
+      transform: translateX(60px) rotateY(-8deg);
+      transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.2,.8,.2,1);
+      perspective: 1500px;
+      transform-style: preserve-3d;
+    }
+    .hero.is-revealed .hero__visual { opacity: 1; transform: translateX(0) rotateY(0); transition-delay: .4s; }
+
+    .device {
+      transform-style: preserve-3d;
+      transition: transform .6s cubic-bezier(.2,.8,.2,1);
+    }
+    .device--laptop {
+      animation: deviceFloat 6s ease-in-out infinite;
+    }
+    .device--phone {
+      animation: deviceFloat 6s ease-in-out infinite reverse;
+      animation-delay: -2s;
+    }
+    @keyframes deviceFloat {
+      0%, 100% { transform: perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(0); }
+      50% { transform: perspective(1200px) rotateY(-4deg) rotateX(0deg) translateY(-12px); }
+    }
+    @keyframes deviceFloatPhone {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* SERP result list animasyonu */
+    .serp__result {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1);
+    }
+    .hero.is-revealed .serp__result { opacity: .55; transform: translateX(0); }
+    .hero.is-revealed .serp__result:nth-child(1) { transition-delay: 1.3s; }
+    .hero.is-revealed .serp__result:nth-child(2) { transition-delay: 1.5s; }
+    .hero.is-revealed .serp__result:nth-child(3) { transition-delay: 1.7s; }
+    .serp__result--target {
+      animation: none;
+    }
+    .hero.is-revealed .serp__result--target { opacity: 1; transition-delay: 1.1s; }
+
+    /* Phone app elements animasyonu */
+    .app > * {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .hero.is-revealed .app > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 1.4s; }
+    .hero.is-revealed .app > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 1.55s; }
+    .hero.is-revealed .app > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 1.7s; }
+    .hero.is-revealed .app > *:nth-child(4) > div { opacity: 1; transform: translateY(0); }
+
+    /* Mouse parallax */
+    .hero--tilt { transition: transform .5s ease-out; }
+    .device--laptop,
+    .device--phone {
+      will-change: transform;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--text-2);
+      margin-bottom: 24px;
+    }
+    .badge__dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 0 3px rgba(16,185,129,.25); animation: pulse 2s ease infinite; position: relative; }
+    .badge__dot::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 2px solid var(--green);
+      animation: ping 2s ease-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .6; transform: scale(1.2); } }
+    @keyframes ping {
+      0% { transform: scale(1); opacity: .8; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    .hero__title { font-size: clamp(2.2rem, 4.8vw, 3.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -.02em; margin: 0 0 22px; }
+    .hero__sub { font-size: 1.15rem; color: var(--text-2); margin: 0 0 36px; max-width: 540px; }
+    .hero__sub strong { color: var(--text); font-weight: 600; }
+    .hero__cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+
+    .hero__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 540px; }
+    .stat__num { font-size: 2rem; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 6px; }
+    .stat__label { font-size: .8rem; color: var(--text-3); letter-spacing: .02em; }
+
+    /* Hero visual */
+    .hero__visual { position: relative; height: 480px; }
+    .device {
+      position: absolute;
+      background: linear-gradient(180deg, #1a2440 0%, #0f1729 100%);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .device--laptop {
+      width: 110%; left: -5%; top: 30px;
+      padding: 12px;
+      border-radius: 14px 14px 22px 22px;
+      transform: perspective(1200px) rotateY(-6deg) rotateX(2deg);
+    }
+    .device__bar { display: flex; align-items: center; gap: 6px; padding: 4px 8px 10px; }
+    .device__bar > span { width: 10px; height: 10px; border-radius: 50%; background: #2a3856; }
+    .device__bar > span:nth-child(1) { background: #ff5f57; }
+    .device__bar > span:nth-child(2) { background: #febc2e; }
+    .device__bar > span:nth-child(3) { background: #28c840; }
+    .device__url {
+      margin-left: 12px;
+      flex: 1;
+      background: rgba(255,255,255,.04);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: .75rem;
+      color: var(--text-3);
+      text-align: center;
+    }
+    .device__screen { background: #fff; border-radius: 8px; padding: 14px; min-height: 280px; }
+
+    .serp__head { display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid #e8eaed; margin-bottom: 14px; }
+    .serp__logo { font-size: 1.4rem; font-weight: 700; color: #4285f4; }
+    .serp__logo span { color: #ea4335; }
+    .serp__bar { flex: 1; height: 32px; background: #f1f3f4; border-radius: 999px; }
+    .serp__result { display: flex; gap: 12px; padding: 8px 0; align-items: flex-start; opacity: .55; }
+    .serp__result--target {
+      background: linear-gradient(90deg, rgba(59,130,246,.1), transparent);
+      border-left: 3px solid var(--primary);
+      padding-left: 10px;
+      margin-left: -13px;
+      opacity: 1;
+    }
+    .serp__fav { width: 24px; height: 24px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 50%; flex-shrink: 0; }
+    .serp__title { font-size: .82rem; color: #1a0dab; font-weight: 500; margin-bottom: 2px; }
+    .serp__result--target .serp__title { font-weight: 600; }
+    .serp__url { font-size: .68rem; color: #006621; margin-bottom: 2px; }
+    .serp__desc { font-size: .72rem; color: #4d5156; line-height: 1.4; }
+
+    .device--phone {
+      width: 180px;
+      right: -20px;
+      bottom: 0;
+      padding: 10px;
+      background: linear-gradient(180deg, #1a2440 0%, #0f1729 100%);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg), 0 0 0 4px rgba(255,255,255,.05);
+      z-index: 2;
+    }
+    .device__notch { width: 60px; height: 18px; background: #050810; border-radius: 0 0 12px 12px; margin: 0 auto 8px; }
+    .device__screen--mobile { min-height: 280px; background: linear-gradient(180deg, #050810 0%, #0a1020 100%); padding: 12px; }
+    .app__head { height: 12px; width: 60%; background: rgba(255,255,255,.15); border-radius: 4px; margin-bottom: 10px; }
+    .app__hero { height: 80px; background: var(--grad-1); border-radius: 8px; margin-bottom: 8px; }
+    .app__btn { background: var(--grad-1); color: white; text-align: center; padding: 6px; border-radius: 6px; font-size: .65rem; font-weight: 600; margin-bottom: 10px; }
+    .app__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .app__cards div { height: 40px; background: rgba(255,255,255,.08); border-radius: 6px; }
+
+    .float-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15,23,41,.95);
+      border: 1px solid var(--border-2);
+      backdrop-filter: blur(10px);
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      z-index: 3;
+      opacity: 0;
+      transform: scale(.7);
+      transition: opacity .7s cubic-bezier(.34, 1.56, .64, 1), transform .7s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .float-badge strong { display: block; font-size: .95rem; font-weight: 700; color: var(--text); }
+    .float-badge em { font-style: normal; font-size: .72rem; color: var(--text-3); }
+    .float-badge__icon { width: 36px; height: 36px; display: grid; place-items: center; background: rgba(59,130,246,.15); border-radius: 10px; font-size: 1.2rem; }
+    .float-badge--1 { top: -10px; right: 60px; }
+    .float-badge--2 { bottom: 60px; left: -30px; }
+    .hero.is-revealed .float-badge--1 { opacity: 1; transform: scale(1); transition-delay: 1.6s; animation: float 4s ease-in-out 1.6s infinite; }
+    .hero.is-revealed .float-badge--2 { opacity: 1; transform: scale(1); transition-delay: 1.8s; animation: float 4s ease-in-out 3.1s infinite; }
+    @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+    /* Modern translate */
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 80px;
+      padding: 28px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .trust__item { display: flex; align-items: center; gap: 12px; font-size: .9rem; color: var(--text-2); }
+    .trust__item svg { color: var(--primary); flex-shrink: 0; }
+
+    /* ---------- Services ---------- */
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all .3s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .service::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad-1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s var(--ease);
+    }
+    .service:hover { transform: translateY(-6px); border-color: var(--border-2); box-shadow: var(--shadow-md); }
+    .service:hover::before { transform: scaleX(1); }
+    .service__icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--c1, #3b82f6), var(--c2, #06b6d4));
+      display: grid; place-items: center;
+      color: white;
+      margin-bottom: 22px;
+    }
+    .service__icon svg { width: 28px; height: 28px; }
+    .service h3 { font-size: 1.25rem; margin: 0 0 10px; font-weight: 700; }
+    .service p { color: var(--text-2); margin: 0 0 18px; font-size: .95rem; }
+    .service__list { list-style: none; padding: 0; margin: 0; }
+    .service__list li { position: relative; padding-left: 22px; font-size: .88rem; color: var(--text-2); margin-bottom: 6px; }
+    .service__list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+
+    /* ---------- Pricing ---------- */
+    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+    .plan {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all .3s var(--ease);
+    }
+    .plan:hover { transform: translateY(-6px); border-color: var(--border-2); box-shadow: var(--shadow-md); }
+    .plan--featured {
+      background: linear-gradient(180deg, rgba(59,130,246,.12) 0%, var(--surface) 40%);
+      border-color: var(--primary);
+      box-shadow: 0 20px 50px rgba(59,130,246,.25);
+      transform: scale(1.03);
+    }
+    .plan--featured:hover { transform: scale(1.03) translateY(-6px); }
+    .plan__ribbon {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--grad-1);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(59,130,246,.4);
+    }
+    .plan__head { text-align: center; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .plan__name { font-size: 1.35rem; font-weight: 700; margin: 0 0 6px; }
+    .plan__desc { font-size: .88rem; color: var(--text-3); margin: 0 0 24px; }
+    .plan__price { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin-bottom: 8px; }
+    .plan__currency { font-size: 1.5rem; font-weight: 600; color: var(--text-2); }
+    .plan__amount { font-size: 3.5rem; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+    .plan__note { display: inline-block; font-size: .75rem; color: var(--text-3); background: rgba(255,255,255,.04); padding: 4px 12px; border-radius: 999px; }
+    .plan__features { list-style: none; padding: 24px 0; margin: 0; flex: 1; }
+    .plan__features li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: .9rem;
+    }
+    .plan__features li:last-child { border-bottom: none; }
+    .plan__features li::after {
+      content: '';
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    .plan__features .on span { color: var(--text); }
+    .plan__features .on::after {
+      background-color: rgba(16,185,129,.2);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='3'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+    }
+    .plan__features .on--gold span { color: var(--gold); font-weight: 600; }
+    .plan__features .on--gold::after {
+      background-color: rgba(251,191,36,.2);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fbbf24' stroke-width='3'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+    }
+    .plan__features .off span { color: var(--text-3); text-decoration: line-through; }
+    .plan__features .off::after {
+      background-color: rgba(239,68,68,.15);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ef4444' stroke-width='3'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
+    }
+    .pricing__note { text-align: center; margin-top: 40px; color: var(--text-2); font-size: .92rem; }
+
+    /* ---------- Process ---------- */
+    .process { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: center; gap: 16px; }
+    .process__step { text-align: center; }
+    .process__num { font-size: 3rem; font-weight: 800; background: var(--grad-1); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; margin-bottom: 16px; }
+    .process__step h3 { font-size: 1.1rem; margin: 0 0 10px; font-weight: 700; }
+    .process__step p { font-size: .9rem; color: var(--text-2); margin: 0; }
+    .process__line { height: 2px; background: linear-gradient(90deg, var(--border) 0%, var(--primary) 50%, var(--border) 100%); position: relative; top: -20px; }
+
+    /* ---------- Why ---------- */
+    .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .why__item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      text-align: center;
+      transition: all .3s var(--ease);
+    }
+    .why__item:hover { transform: translateY(-4px); border-color: var(--primary); background: linear-gradient(180deg, rgba(59,130,246,.05), var(--surface)); }
+    .why__icon { font-size: 2.5rem; margin-bottom: 16px; display: inline-block; }
+    .why__item h3 { font-size: 1.1rem; margin: 0 0 10px; font-weight: 700; }
+    .why__item p { font-size: .92rem; color: var(--text-2); margin: 0; }
+
+    /* ---------- Testimonials ---------- */
+    .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .t-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all .3s var(--ease);
+      position: relative;
+    }
+    .t-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      right: 24px;
+      font-size: 5rem;
+      color: var(--primary);
+      opacity: .15;
+      line-height: 1;
+    }
+    .t-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .t-card__stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .t-card p { color: var(--text-2); font-size: .98rem; margin: 0 0 24px; line-height: 1.6; }
+    .t-card footer { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .t-card__avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--grad-1); color: white; display: grid; place-items: center; font-weight: 700; font-size: .9rem; }
+    .t-card footer strong { display: block; font-size: .95rem; color: var(--text); }
+    .t-card footer em { font-style: normal; font-size: .8rem; color: var(--text-3); }
+
+    /* ---------- FAQ ---------- */
+    .faq { display: flex; flex-direction: column; gap: 12px; }
+    .faq__item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all .3s var(--ease);
+    }
+    .faq__item[open] { border-color: var(--primary); background: linear-gradient(180deg, rgba(59,130,246,.04), var(--surface)); }
+    .faq__item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 22px 28px;
+      font-weight: 600;
+      font-size: 1.02rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--text);
+    }
+    .faq__item summary::-webkit-details-marker { display: none; }
+    .faq__item summary::after { content: '+'; font-size: 1.4rem; color: var(--primary); transition: transform .3s var(--ease); font-weight: 300; flex-shrink: 0; }
+    .faq__item[open] summary::after { transform: rotate(45deg); }
+    .faq__item p { margin: 0; padding: 0 28px 22px; color: var(--text-2); font-size: .95rem; line-height: 1.7; }
+
+    /* ---------- CTA Banner ---------- */
+    .cta-banner {
+      padding: 60px 0;
+      background:
+        radial-gradient(ellipse 60% 100% at 50% 50%, rgba(59,130,246,.15), transparent 70%),
+        var(--bg);
+    }
+    .cta-banner__inner {
+      background: linear-gradient(135deg, rgba(59,130,246,.15), rgba(6,182,212,.08));
+      border: 1px solid rgba(59,130,246,.3);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner__inner::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -10%;
+      width: 400px; height: 400px;
+      background: var(--grad-1);
+      filter: blur(120px);
+      opacity: .25;
+    }
+    .cta-banner h2 { font-size: 1.8rem; margin: 0 0 8px; position: relative; font-weight: 800; }
+    .cta-banner p { color: var(--text-2); margin: 0; position: relative; }
+    .cta-banner__actions { display: flex; gap: 12px; flex-wrap: wrap; position: relative; }
+
+    /* ---------- Contact ---------- */
+    .contact { display: grid; grid-template-columns: 1.4fr .9fr; gap: 40px; }
+    .contact__form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .field span { font-size: .82rem; font-weight: 500; color: var(--text-2); }
+    .field input, .field select, .field textarea {
+      padding: 13px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      transition: all .2s var(--ease);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+    .field textarea { resize: vertical; min-height: 100px; }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8c0d4' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 18px;
+      padding-right: 40px;
+    }
+    .form-status { margin: 16px 0 0; padding: 12px 16px; border-radius: 10px; font-size: .9rem; display: none; }
+    .form-status.is-success { display: block; background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.3); color: #6ee7b7; }
+    .form-status.is-error { display: block; background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; }
+
+    .contact__aside { display: flex; flex-direction: column; gap: 16px; }
+    .contact__card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all .2s var(--ease);
+    }
+    .contact__card:hover { border-color: var(--primary); transform: translateX(4px); }
+    .contact__icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, rgba(59,130,246,.15), rgba(6,182,212,.1)); display: grid; place-items: center; color: var(--primary); flex-shrink: 0; }
+    .contact__card strong { display: block; font-size: .82rem; color: var(--text-3); font-weight: 500; margin-bottom: 2px; }
+    .contact__card a, .contact__card em { font-size: .98rem; color: var(--text); font-weight: 600; font-style: normal; }
+    .urgency {
+      margin-top: 12px;
+      padding: 22px;
+      background: linear-gradient(135deg, rgba(251,191,36,.08), rgba(239,68,68,.04));
+      border: 1px solid rgba(251,191,36,.3);
+      border-radius: var(--radius);
+    }
+    .urgency strong { display: block; font-size: .98rem; color: var(--gold); margin-bottom: 6px; }
+    .urgency p { font-size: .85rem; color: var(--text-2); margin: 0; line-height: 1.5; }
+
+    /* ---------- Footer ---------- */
+    .footer { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 64px 0 24px; }
+    .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer__brand p { color: var(--text-2); font-size: .92rem; margin: 16px 0 20px; max-width: 280px; }
+    .footer__social { display: flex; gap: 10px; }
+    .footer__social a { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid var(--border); display: grid; place-items: center; color: var(--text-2); transition: all .2s var(--ease); }
+    .footer__social a:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+    .footer h4 { font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin: 0 0 18px; }
+    .footer ul { list-style: none; padding: 0; margin: 0; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul a { color: var(--text-2); font-size: .92rem; transition: color .2s ease; }
+    .footer ul a:hover { color: var(--primary); }
+    .footer__bottom { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-3); font-size: .85rem; }
+
+    /* ---------- WhatsApp Float ---------- */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: grid;
+      place-items: center;
+      z-index: 99;
+      box-shadow: 0 10px 30px rgba(37,211,102,.5);
+      transition: transform .3s var(--ease);
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float__pulse { position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25D366; animation: wa-pulse 2s ease-out infinite; }
+    @keyframes wa-pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .hero__inner { grid-template-columns: 1fr; gap: 60px; }
+      .hero__visual { height: 420px; max-width: 600px; margin: 0 auto; width: 100%; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .pricing { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .plan--featured { transform: none; }
+      .plan--featured:hover { transform: translateY(-6px); }
+      .why { grid-template-columns: repeat(2, 1fr); }
+      .testimonials { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+      .contact { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav__menu { display: none; }
+      .nav__menu.is-open { display: flex; }
+      .nav__actions .btn--ghost { display: none; }
+      .nav__burger { display: flex; }
+      .nav__actions .btn--primary { padding: 8px 14px; font-size: .8rem; }
+      .section { padding: 70px 0; }
+      .hero { padding: 110px 0 60px; }
+      .hero__stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .hero__visual { height: 380px; }
+      .device--laptop { width: 100%; left: 0; }
+      .device--phone { width: 140px; right: 0; }
+      .float-badge { display: none; }
+      .trust { grid-template-columns: repeat(2, 1fr); padding: 20px; }
+      .process { grid-template-columns: 1fr; gap: 16px; }
+      .process__line { display: none; }
+      .services { grid-template-columns: 1fr; }
+      .why { grid-template-columns: 1fr; }
+      .cta-banner__inner { flex-direction: column; text-align: center; padding: 32px 24px; }
+      .cta-banner__actions { justify-content: center; width: 100%; }
+      .cta-banner__actions .btn { flex: 1; min-width: 0; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+      .intro__corner--tl, .intro__corner--bl { display: none; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+      .hero__title { font-size: 2rem; }
+      .section__title { font-size: 1.6rem; }
+      .hero__cta { flex-direction: column; }
+      .hero__cta .btn { width: 100%; }
+      .trust { grid-template-columns: 1fr; }
+      .wa-float { width: 54px; height: 54px; bottom: 16px; right: 16px; }
+    }
+
+    :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+    ::selection { background: var(--primary); color: white; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+  </style>
+</head>
+<body class="intro-active">
+
+  <!-- ===== ANİMASYONLU INTRO ===== -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <canvas class="intro__canvas" id="particles"></canvas>
+    <div class="intro__grid"></div>
+    <div class="intro__aurora intro__aurora--1"></div>
+    <div class="intro__aurora intro__aurora--2"></div>
+    <div class="intro__aurora intro__aurora--3"></div>
+
+    <div class="intro__corner intro__corner--tl">RUTAN TASARIM © <span id="introYear"></span></div>
+    <div class="intro__corner intro__corner--bl">PROFESSIONAL WEB DESIGN</div>
+    <div class="intro__corner intro__corner--br"><span class="dot"></span> Loading experience</div>
+    <button class="intro__skip" id="introSkip" type="button">Atla →</button>
+
+    <div class="intro__center">
+      <div class="intro__logo">
+        <svg viewBox="0 0 40 40" width="140" height="140" aria-hidden="true">
+          <defs>
+            <linearGradient id="introGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#3b82f6"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+          <rect class="draw-rect" x="2" y="2" width="36" height="36" rx="10" fill="url(#introGrad)" stroke="rgba(255,255,255,.3)" stroke-width="0.5"/>
+          <path class="draw-path" d="M12 28 L20 10 L28 28 M15 22 H25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <h1 class="intro__title" id="introTitle"></h1>
+      <p class="intro__sub">Yazılım & Dijital Çözümler</p>
+      <p class="intro__tagline">Web tasarım, <span class="grad-text">SEO</span> & <span class="grad-text">Google Ads</span></p>
+    </div>
+
+    <div class="intro__progress" aria-hidden="true"></div>
+  </div>
+
+  <main class="site" id="site">
+    <!-- ===== NAV ===== -->
+    <header class="nav" id="nav">
+      <div class="container nav__inner">
+        <a href="#hero" class="logo" aria-label="RUTAN TASARIM">
+          <span class="logo__mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="36" height="36">
+              <defs>
+                <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#3b82f6"/>
+                  <stop offset="100%" stop-color="#06b6d4"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#lg)"/>
+              <path d="M12 28 L20 10 L28 28 M15 22 H25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </span>
+          <span class="logo__text">
+            <strong>RUTAN</strong>
+            <em>tasarım</em>
+          </span>
+        </a>
+
+        <nav class="nav__menu" id="navMenu" aria-label="Ana menü">
+          <a href="#hizmetler">Hizmetler</a>
+          <a href="#paketler">Paketler</a>
+          <a href="#surec">Nasıl Çalışırız</a>
+          <a href="#sss">SSS</a>
+          <a href="#iletisim">İletişim</a>
+        </nav>
+
+        <div class="nav__actions">
+          <a href="tel:05424157174" class="btn btn--ghost btn--sm" aria-label="Telefonla ara">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            0542 415 71 74
+          </a>
+          <a href="#iletisim" class="btn btn--primary btn--sm">Ücretsiz Teklif Al</a>
+          <button class="nav__burger" id="burger" aria-label="Menüyü aç">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <canvas class="hero__canvas" id="heroCanvas"></canvas>
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+        <div class="hero__glow hero__glow--3"></div>
+        <div class="hero__scan"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="badge hero__anim">
+            <span class="badge__dot"></span>
+            Google Partner • 12+ Yıllık Tecrübe
+          </div>
+
+          <h1 class="hero__title hero__anim">
+            <span class="word"><span>Web</span></span> <span class="word"><span>Sitenizi</span></span> <span class="word"><span class="grad-text">Biz</span></span> <span class="word"><span class="grad-text">Oluşturuyoruz</span></span>,<br/>
+            <span class="word"><span>Satışlarınızı</span></span> <span class="word"><span class="grad-text-2">Google'da</span></span> <span class="word"><span>Artırıyoruz</span></span>
+          </h1>
+
+          <p class="hero__sub hero__anim">
+            Profesyonel <strong>web tasarım</strong>, <strong>SEO</strong> ve <strong>Google Ads</strong> yönetimi.
+            Tüm süreç tek elden — <strong>4 günde teslim</strong>, 1 yıl ücretsiz domain + hosting.
+          </p>
+
+          <div class="hero__cta hero__anim">
+            <a href="#iletisim" class="btn btn--primary btn--lg">
+              Ücretsiz Teklif Al
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://wa.me/905424157174?text=Merhaba%20web%20sitesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.523 5.295l.241.383-1.001 3.654 3.726-.978zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.307 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              WhatsApp'tan Yaz
+            </a>
+          </div>
+
+          <div class="hero__stats hero__anim">
+            <div class="stat">
+              <div class="stat__num" data-count="250">0</div>
+              <div class="stat__label">Tamamlanan Proje</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num" data-count="180">0</div>
+              <div class="stat__label">Mutlu Müşteri</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num"><span data-count="98">0</span>%</div>
+              <div class="stat__label">Memnuniyet</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num" data-count="4">0</div>
+              <div class="stat__label">Günde Teslim</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="device device--laptop">
+            <div class="device__bar">
+              <span></span><span></span><span></span>
+              <div class="device__url">www.sizinfirmaniz.com</div>
+            </div>
+            <div class="device__screen">
+              <div class="serp">
+                <div class="serp__head">
+                  <div class="serp__logo">G<span>oogle</span></div>
+                  <div class="serp__bar"></div>
+                </div>
+                <div class="serp__body">
+                  <div class="serp__result serp__result--target">
+                    <div class="serp__fav"></div>
+                    <div>
+                      <div class="serp__title">Sizin Firmanız — #1 Sırada</div>
+                      <div class="serp__url">www.sizinfirmaniz.com</div>
+                      <div class="serp__desc">Profesyonel hizmet, uygun fiyat. 7/24 müşteri desteği ile yanınızdayız...</div>
+                    </div>
+                  </div>
+                  <div class="serp__result">
+                    <div class="serp__fav"></div>
+                    <div>
+                      <div class="serp__title">Rakipler</div>
+                      <div class="serp__url">rakip.com</div>
+                    </div>
+                  </div>
+                  <div class="serp__result">
+                    <div class="serp__fav"></div>
+                    <div>
+                      <div class="serp__title">Rakipler 2</div>
+                      <div class="serp__url">rakip2.com</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="device device--phone">
+            <div class="device__notch"></div>
+            <div class="device__screen device__screen--mobile">
+              <div class="app">
+                <div class="app__head"></div>
+                <div class="app__hero"></div>
+                <div class="app__btn">Hemen Teklif Al</div>
+                <div class="app__cards">
+                  <div></div><div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-badge float-badge--1">
+            <div class="float-badge__icon">🚀</div>
+            <div>
+              <strong>İlk Sayfada</strong>
+              <em>Google sıralaması</em>
+            </div>
+          </div>
+          <div class="float-badge float-badge--2">
+            <div class="float-badge__icon">📈</div>
+            <div>
+              <strong>+340%</strong>
+              <em>Organik trafik</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="trust">
+          <div class="trust__item">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 2l9 4v6c0 5.5-3.8 10.7-9 12-5.2-1.3-9-6.5-9-12V6l9-4z"/></svg>
+            1 Yıl Ücretsiz Domain + Hosting
+          </div>
+          <div class="trust__item">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            4 Günde Teslim Garantisi
+          </div>
+          <div class="trust__item">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1l3.09 6.26L22 8.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 13.14l-5-4.87 6.91-1.01z"/></svg>
+            %98 Müşteri Memnuniyeti
+          </div>
+          <div class="trust__item">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            7/24 Destek
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HİZMETLER ===== -->
+    <section class="section" id="hizmetler">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Hizmetlerimiz</span>
+          <h2 class="section__title">Dijitaldeki <span class="grad-text">Tüm İhtiyaçlarınız</span> Tek Elden</h2>
+          <p class="section__sub">Web tasarımdan Google reklamlarına, SEO'dan e-ticarete kadar her şeyi tek ekiple, tek elden çözüyoruz.</p>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="service__icon" style="--c1:#3b82f6;--c2:#06b6d4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Kurumsal Web Tasarım</h3>
+            <p>Markanızı dijitalde en iyi yansıtan, hızlı, SEO uyumlu kurumsal web siteleri. Mobil uyumlu, modern, etkileyici.</p>
+            <ul class="service__list">
+              <li>Özel tasarım + UI/UX</li>
+              <li>SEO altyapısı hazır</li>
+              <li>SSL + hızlı hosting</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="service__icon" style="--c1:#8b5cf6;--c2:#ec4899">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+            </div>
+            <h3>E-Ticaret Sitesi</h3>
+            <p>Ürün yönetimi, ödeme altyapısı, kargo entegrasyonu ile satışa hazır e-ticaret siteleri.</p>
+            <ul class="service__list">
+              <li>İyzico / PayTR entegrasyonu</li>
+              <li>Stok & sipariş yönetimi</li>
+              <li>WhatsApp sipariş butonu</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="service__icon" style="--c1:#10b981;--c2:#3b82f6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>Google Ads Yönetimi</h3>
+            <p>Doğru kitleye, doğru reklamla ulaşın. Arama, görsel ve yeniden pazarlama kampanyaları.</p>
+            <ul class="service__list">
+              <li>Anahtar kelime analizi</li>
+              <li>Dönüşüm odaklı reklam</li>
+              <li>Aylık raporlama</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="service__icon" style="--c1:#f59e0b;--c2:#ef4444">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/><path d="M8 11l3 3 5-5"/></svg>
+            </div>
+            <h3>SEO Hizmeti</h3>
+            <p>Google'da ilk sayfada yer alın. Teknik SEO, içerik optimizasyonu ve backlink stratejisi.</p>
+            <ul class="service__list">
+              <li>Teknik SEO denetimi</li>
+              <li>İçerik stratejisi</li>
+              <li>Rakip analizi</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="service__icon" style="--c1:#06b6d4;--c2:#3b82f6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Landing Page</h3>
+            <p>Yüksek dönüşüm oranlı, tek sayfa satış sayfaları. Reklam kampanyalarınız için biçilmiş kaftan.</p>
+            <ul class="service__list">
+              <li>A/B test altyapısı</li>
+              <li>Hızlı yükleme (90+ PageSpeed)</li>
+              <li>Form & CRM entegrasyonu</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="service__icon" style="--c1:#ec4899;--c2:#8b5cf6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <h3>Sosyal Medya Yönetimi</h3>
+            <p>Instagram, Facebook ve LinkedIn'de markanızın sesini güçlendiriyoruz. İçerik + reklam yönetimi.</p>
+            <ul class="service__list">
+              <li>İçerik takvimi</li>
+              <li>Topluluk yönetimi</li>
+              <li>Reklam optimizasyonu</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAKETLER ===== -->
+    <section class="section section--alt" id="paketler">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Paketler</span>
+          <h2 class="section__title">Şeffaf <span class="grad-text">Fiyatlandırma</span>, Gizli Ücret Yok</h2>
+          <p class="section__sub">İhtiyacınıza en uygun paketi seçin. Tüm paketlerde 1 yıl domain + hosting hediye.</p>
+        </div>
+
+        <div class="pricing" id="pricingContainer">
+          <!-- Paketler admin panelinden otomatik yüklenir -->
+        </div>
+
+        <p class="pricing__note">
+          ⓘ Tüm paketlerde <strong>%50 peşin, %50 teslimde</strong> ödeme kolaylığı. Taksit imkanı mevcuttur.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SÜREÇ ===== -->
+    <section class="section" id="surec">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Nasıl Çalışırız</span>
+          <h2 class="section__title">4 Adımda <span class="grad-text">Yayında</span></h2>
+          <p class="section__sub">Süreç şeffaf, hızlı ve stressiz. Siz sadece işinize odaklanın.</p>
+        </div>
+
+        <div class="process" id="processContainer">
+          <!-- Süreç adımları admin panelinden otomatik yüklenir -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEDEN BİZ ===== -->
+    <section class="section section--alt" id="neden">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Neden Biz</span>
+          <h2 class="section__title">Rakiplerinizden <span class="grad-text">Bir Adım Önde</span> Olun</h2>
+        </div>
+
+        <div class="why" id="whyContainer">
+          <!-- Neden biz maddeleri admin panelinden otomatik yüklenir -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== YORUMLAR ===== -->
+    <section class="section" id="yorumlar">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Müşterilerimiz Ne Diyor</span>
+          <h2 class="section__title">Gerçek <span class="grad-text">Sonuçlar</span>, Gerçek Yorumlar</h2>
+        </div>
+
+        <div class="testimonials" id="testimonialsContainer">
+          <!-- Müşteri yorumları admin panelinden otomatik yüklenir -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SSS ===== -->
+    <section class="section section--alt" id="sss">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <span class="eyebrow">Sıkça Sorulan Sorular</span>
+          <h2 class="section__title">Aklınızdaki <span class="grad-text">Soruları</span> Yanıtladık</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary>Web sitem kaç günde hazır olur?</summary>
+            <p>Standart projeler 4 iş günü içinde teslim edilir. E-ticaret ve özel projeler için süre, kapsama göre netleşir — teklif aşamasında paylaşıyoruz.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Domain ve hosting gerçekten ücretsiz mi?</summary>
+            <p>Evet. Tüm paketlerimizde 1 yıllık .com / .com.tr domain ve SSL sertifikalı hosting hediyedir. 2. yıl kendiniz yenilersiniz (yıllık ~600-1200₺).</p>
+          </details>
+          <details class="faq__item">
+            <summary>SEO hizmeti pakete dahil mi?</summary>
+            <p>Tüm paketlerde SEO altyapısı hazır (teknik SEO, meta etiketler, site haritası). Kurumsal pakette gelişmiş SEO paneli, Premium'da içerik stratejisi dahildir.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Google Ads'i siz mi yönetiyorsunuz?</summary>
+            <p>Evet, opsiyonel olarak Google Ads yönetimini de üstleniyoruz. Aylık yönetim bedeli reklam bütçesine göre değişir. Detayları teklif aşamasında konuşuyoruz.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Sonradan revizyon yapabilir miyim?</summary>
+            <p>Tabii. Her pakette belirtilen revizyon turu hakkınız var. Paket bittikten sonra saatlik / aylık destek paketlerimizden faydalanabilirsiniz.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Ödeme nasıl yapılıyor?</summary>
+            <p>Standart ödeme planı %50 peşin, %50 teslimde. Kurumsal müşteriler için aylık taksit ve fatura imkanı mevcuttur.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Sitenin içeriğini kendim ekleyebilir miyim?</summary>
+            <p>Kurumsal ve Premium paketlerde yönetim paneli teslim ediyoruz. Premium pakette size özel eğitim veriyoruz, böylece içeriklerinizi kolayca yönetebilirsiniz.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Referanslarınızı görebilir miyim?</summary>
+            <p>Elbette. İletişim formundan talep edin, sektörünüze uygun örnekleri ve canlı sitelerin linklerini paylaşalım.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div>
+            <h2>Projenizi Konuşalım</h2>
+            <p>Ücretsiz keşif toplantısı için hemen iletişime geçin. 24 saat içinde dönüş sözü.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="tel:05424157174" class="btn btn--primary btn--lg">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+              0542 415 71 74
+            </a>
+            <a href="https://wa.me/905424157174" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.523 5.295l.241.383-1.001 3.654 3.726-.978zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.307 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== İLETİŞİM ===== -->
+    <section class="section" id="iletisim">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">İletişim</span>
+          <h2 class="section__title">Hemen <span class="grad-text">Teklif Alın</span></h2>
+          <p class="section__sub">Formu doldurun, en geç 24 saat içinde size dönelim.</p>
+        </div>
+
+        <div class="contact">
+          <form class="contact__form" id="contactForm" novalidate>
+            <div class="form-row">
+              <label class="field">
+                <span>Ad Soyad *</span>
+                <input type="text" name="name" required placeholder="Adınız Soyadınız" />
+              </label>
+              <label class="field">
+                <span>Firma Adı</span>
+                <input type="text" name="company" placeholder="Şirket adınız" />
+              </label>
+            </div>
+            <div class="form-row">
+              <label class="field">
+                <span>Telefon *</span>
+                <input type="tel" name="phone" required placeholder="05XX XXX XX XX" />
+              </label>
+              <label class="field">
+                <span>E-posta</span>
+                <input type="email" name="email" placeholder="ornek@firma.com" />
+              </label>
+            </div>
+            <label class="field">
+              <span>İlgilendiğiniz Hizmet *</span>
+              <select name="service" required>
+                <option value="">Seçiniz...</option>
+                <option>Başlangıç Paketi (₺3.999)</option>
+                <option>Kurumsal Paket (₺10.000)</option>
+                <option>Premium Paket (₺15.000)</option>
+                <option>Google Ads Yönetimi</option>
+                <option>SEO Hizmeti</option>
+                <option>Diğer</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Mesajınız</span>
+              <textarea name="message" rows="4" placeholder="Projeniz hakkında kısa bilgi verin..."></textarea>
+            </label>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">
+              Teklif İste
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
+
+          <aside class="contact__aside">
+            <div class="contact__card">
+              <div class="contact__icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <strong>Telefon</strong>
+                <a href="tel:05424157174">0542 415 71 74</a>
+              </div>
+            </div>
+            <div class="contact__card">
+              <div class="contact__icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.523 5.295l.241.383-1.001 3.654 3.726-.978zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.307 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              </div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/905424157174" target="_blank" rel="noopener">Hızlı Mesaj Gönder</a>
+              </div>
+            </div>
+            <div class="contact__card">
+              <div class="contact__icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+              </div>
+              <div>
+                <strong>Web</strong>
+                <a href="https://www.rutantasarim.com" target="_blank" rel="noopener">www.rutantasarim.com</a>
+              </div>
+            </div>
+            <div class="contact__card">
+              <div class="contact__icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <strong>Çalışma Saatleri</strong>
+                <em>Pzt - Cmt: 09:00 - 19:00</em>
+              </div>
+            </div>
+
+            <div class="urgency">
+              <strong>⏰ Bu hafta sadece 3 proje</strong>
+              <p>Aylık sınırlı sayıda proje alıyoruz. Yerinizi ayırmak için hemen başvurun.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <div class="logo">
+              <span class="logo__mark" aria-hidden="true">
+                <svg viewBox="0 0 40 40" width="40" height="40">
+                  <defs>
+                    <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#3b82f6"/>
+                      <stop offset="100%" stop-color="#06b6d4"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#lg2)"/>
+                  <path d="M12 28 L20 10 L28 28 M15 22 H25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </span>
+              <span class="logo__text">
+                <strong>RUTAN</strong>
+                <em>tasarım</em>
+              </span>
+            </div>
+            <p>Profesyonel web tasarım, SEO ve Google Ads hizmetleri. Dijitalde büyümenin anahtarı.</p>
+            <div class="footer__social">
+              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg></a>
+              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg></a>
+              <a href="https://wa.me/905424157174" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.523 5.295l.241.383-1.001 3.654 3.726-.978zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.307 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+            </div>
+          </div>
+
+          <div>
+            <h4>Hizmetler</h4>
+            <ul>
+              <li><a href="#hizmetler">Kurumsal Web Tasarım</a></li>
+              <li><a href="#hizmetler">E-Ticaret</a></li>
+              <li><a href="#hizmetler">Google Ads</a></li>
+              <li><a href="#hizmetler">SEO Hizmeti</a></li>
+              <li><a href="#hizmetler">Landing Page</a></li>
+              <li><a href="#hizmetler">Sosyal Medya</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Paketler</h4>
+            <ul>
+              <li><a href="#paketler">Başlangıç — ₺3.999</a></li>
+              <li><a href="#paketler">Kurumsal — ₺10.000</a></li>
+              <li><a href="#paketler">Premium — ₺15.000</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>İletişim</h4>
+            <ul>
+              <li><a href="tel:05424157174">0542 415 71 74</a></li>
+              <li><a href="https://wa.me/905424157174" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a href="https://www.rutantasarim.com" target="_blank" rel="noopener">www.rutantasarim.com</a></li>
+              <li><a href="#iletisim">İletişim Formu</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <span>© <span id="year"></span> RUTAN TASARIM — Yazılım & Dijital Çözümler. Tüm hakları saklıdır.</span>
+          <span>Profesyonel web tasarım ile yapıldı 💙</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/905424157174?text=Merhaba%2C%20web%20sitesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+       target="_blank" rel="noopener"
+       class="wa-float" aria-label="WhatsApp ile iletişime geç">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.523 5.295l.241.383-1.001 3.654 3.726-.978zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.307 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span class="wa-float__pulse"></span>
+    </a>
+  </main>
+
+  <script>
+    (() => {
+      'use strict';
+
+      /* ===========================================================
+         INTRO ANİMASYONU — Particle Canvas + Letter Animations
+         =========================================================== */
+      const intro = document.getElementById('intro');
+      const site = document.getElementById('site');
+      const introTitle = document.getElementById('introTitle');
+      const introYear = document.getElementById('introYear');
+      const introSkip = document.getElementById('introSkip');
+      const canvas = document.getElementById('particles');
+
+      if (introYear) introYear.textContent = new Date().getFullYear();
+
+      // RUTAN harflerini span'lara böl
+      if (introTitle) {
+        const word = 'RUTAN';
+        const html = word.split('').map((c, i) => {
+          const delay = 1.0 + i * 0.12;
+          return `<span style="animation-delay:${delay}s">${c}</span>`;
+        }).join('');
+        introTitle.innerHTML = html;
+      }
+
+      // Particle canvas
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let raf;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      function resizeCanvas() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
+      }
+
+      function createParticles() {
+        const count = Math.min(110, Math.floor((window.innerWidth * window.innerHeight) / 14000));
+        particles = [];
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 1.6 + 0.4,
+            hue: Math.random() < 0.5 ? 215 : 195, // mavi / cyan
+            alpha: Math.random() * 0.6 + 0.3
+          });
+        }
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        // Çizgiler
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          for (let j = i + 1; j < particles.length; j++) {
+            const q = particles[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 130) {
+              const a = (1 - dist / 130) * 0.18;
+              ctx.strokeStyle = `hsla(${p.hue}, 90%, 65%, ${a})`;
+              ctx.lineWidth = 0.6;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Noktalar
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > window.innerWidth) p.vx *= -1;
+          if (p.y < 0 || p.y > window.innerHeight) p.vy *= -1;
+
+          const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+          grd.addColorStop(0, `hsla(${p.hue}, 90%, 70%, ${p.alpha})`);
+          grd.addColorStop(1, `hsla(${p.hue}, 90%, 70%, 0)`);
+          ctx.fillStyle = grd;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = `hsla(${p.hue}, 90%, 80%, ${p.alpha})`;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        raf = requestAnimationFrame(drawParticles);
+      }
+
+      function startParticles() {
+        resizeCanvas();
+        createParticles();
+        drawParticles();
+        window.addEventListener('resize', () => {
+          resizeCanvas();
+          createParticles();
+        });
+      }
+
+      // Intro'yu kapat
+      let introDone = false;
+      function closeIntro() {
+        if (introDone) return;
+        introDone = true;
+        cancelAnimationFrame(raf);
+        intro.classList.add('is-done');
+        document.body.classList.remove('intro-active');
+        site.classList.add('is-revealed');
+        // Particle canvas'ı temizle
+        setTimeout(() => {
+          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }, 1000);
+        initSite();
+      }
+
+      // Skip butonu
+      if (introSkip) {
+        introSkip.addEventListener('click', closeIntro);
+      }
+
+      // ESC ile atla
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !introDone) closeIntro();
+      });
+
+      // Otomatik kapanma — zoom animasyonu bitince
+      setTimeout(closeIntro, 5800);
+
+      // Particle'ları başlat
+      startParticles();
+
+      /* ===========================================================
+         HERO CANVAS + ANIMATION
+         =========================================================== */
+      const heroCanvas = document.getElementById('heroCanvas');
+      const heroEl = document.querySelector('.hero');
+
+      // Trigger reveal animasyonu
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          if (heroEl) heroEl.classList.add('is-revealed');
+        }, 100);
+      });
+
+      // Hero particle canvas
+      if (heroCanvas && heroEl) {
+        const hCtx = heroCanvas.getContext('2d');
+        let hParticles = [];
+        let hRaf;
+        let hDpr = Math.min(window.devicePixelRatio || 1, 2);
+        let hMouseX = 0.5, hMouseY = 0.5;
+        let hTargetX = 0.5, hTargetY = 0.5;
+
+        function resizeHero() {
+          const rect = heroEl.getBoundingClientRect();
+          hDpr = Math.min(window.devicePixelRatio || 1, 2);
+          heroCanvas.width = rect.width * hDpr;
+          heroCanvas.height = rect.height * hDpr;
+          heroCanvas.style.width = rect.width + 'px';
+          heroCanvas.style.height = rect.height + 'px';
+          hCtx.setTransform(1, 0, 0, 1, 0, 0);
+          hCtx.scale(hDpr, hDpr);
+          const count = Math.min(60, Math.floor((rect.width * rect.height) / 22000));
+          hParticles = [];
+          for (let i = 0; i < count; i++) {
+            hParticles.push({
+              x: Math.random() * rect.width,
+              y: Math.random() * rect.height,
+              vx: (Math.random() - 0.5) * 0.3,
+              vy: (Math.random() - 0.5) * 0.3,
+              r: Math.random() * 1.5 + 0.4,
+              hue: Math.random() < 0.6 ? 215 : 195,
+              alpha: Math.random() * 0.5 + 0.2
+            });
+          }
+        }
+
+        function drawHero() {
+          const rect = heroEl.getBoundingClientRect();
+          hCtx.clearRect(0, 0, rect.width, rect.height);
+          for (let i = 0; i < hParticles.length; i++) {
+            const p = hParticles[i];
+            for (let j = i + 1; j < hParticles.length; j++) {
+              const q = hParticles[j];
+              const dx = p.x - q.x, dy = p.y - q.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 100) {
+                const a = (1 - dist / 100) * 0.12;
+                hCtx.strokeStyle = `hsla(${p.hue}, 90%, 65%, ${a})`;
+                hCtx.lineWidth = 0.5;
+                hCtx.beginPath();
+                hCtx.moveTo(p.x, p.y);
+                hCtx.lineTo(q.x, q.y);
+                hCtx.stroke();
+              }
+            }
+          }
+          for (const p of hParticles) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > rect.width) p.vx *= -1;
+            if (p.y < 0 || p.y > rect.height) p.vy *= -1;
+            const grd = hCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+            grd.addColorStop(0, `hsla(${p.hue}, 90%, 70%, ${p.alpha})`);
+            grd.addColorStop(1, `hsla(${p.hue}, 90%, 70%, 0)`);
+            hCtx.fillStyle = grd;
+            hCtx.beginPath();
+            hCtx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+            hCtx.fill();
+            hCtx.fillStyle = `hsla(${p.hue}, 90%, 80%, ${p.alpha})`;
+            hCtx.beginPath();
+            hCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            hCtx.fill();
+          }
+          hRaf = requestAnimationFrame(drawHero);
+        }
+
+        resizeHero();
+        drawHero();
+
+        // Mouse parallax
+        const onMouseMove = (e) => {
+          const rect = heroEl.getBoundingClientRect();
+          if (e.clientY < rect.bottom && e.clientY > rect.top - window.innerHeight) {
+            hTargetX = (e.clientX - rect.left) / rect.width;
+            hTargetY = (e.clientY - rect.top) / rect.height;
+          }
+        };
+        window.addEventListener('mousemove', onMouseMove, { passive: true });
+
+        function parallaxTick() {
+          hMouseX += (hTargetX - hMouseX) * 0.06;
+          hMouseY += (hTargetY - hMouseY) * 0.06;
+          const moveX = (hMouseX - 0.5) * 30;
+          const moveY = (hMouseY - 0.5) * 20;
+          const laptop = heroEl.querySelector('.device--laptop');
+          const phone = heroEl.querySelector('.device--phone');
+          const visual = heroEl.querySelector('.hero__visual');
+          if (visual) {
+            visual.style.transform = `translate3d(${moveX * 0.5}px, ${moveY * 0.3}px, 0)`;
+          }
+          if (laptop) {
+            laptop.style.setProperty('--mx', `${moveX * 0.4}px`);
+            laptop.style.setProperty('--my', `${moveY * 0.4}px`);
+            const baseTx = moveX * 0.3;
+            const baseTy = moveY * 0.3;
+            laptop.style.transform = `perspective(1200px) rotateY(${-6 + moveX * 0.4}deg) rotateX(${2 + moveY * 0.3}deg) translate(${baseTx}px, ${baseTy}px)`;
+          }
+          if (phone) {
+            const baseTx = -moveX * 0.5;
+            const baseTy = -moveY * 0.5;
+            phone.style.transform = `translate(${baseTx}px, ${baseTy}px) rotateY(${4 - moveX * 0.3}deg)`;
+          }
+          const glows = heroEl.querySelectorAll('.hero__glow');
+          glows.forEach((g, i) => {
+            const f = (i + 1) * 0.7;
+            g.style.transform = `translate(${moveX * f}px, ${moveY * f}px)`;
+          });
+          requestAnimationFrame(parallaxTick);
+        }
+        parallaxTick();
+
+        window.addEventListener('resize', resizeHero);
+      }
+
+      /* ===========================================================
+         ANA SAYFA — orijinal sitenin tüm scriptleri
+         =========================================================== */
+      function initSite() {
+        /* Year */
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
+
+        /* Sticky nav */
+        const nav = document.getElementById('nav');
+        const onScroll = () => nav && (window.scrollY > 24 ? nav.classList.add('is-scrolled') : nav.classList.remove('is-scrolled'));
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        /* Mobile burger */
+        const burger = document.getElementById('burger');
+        const menu = document.getElementById('navMenu');
+        if (burger && menu) {
+          burger.addEventListener('click', () => {
+            const open = menu.classList.toggle('is-open');
+            burger.setAttribute('aria-expanded', String(open));
+          });
+          menu.querySelectorAll('a').forEach((a) =>
+            a.addEventListener('click', () => {
+              menu.classList.remove('is-open');
+              burger.setAttribute('aria-expanded', 'false');
+            })
+          );
+        }
+
+        /* Scroll reveal */
+        const targets = document.querySelectorAll(
+          '.section__head, .service, .plan, .process__step, .why__item, .t-card, .faq__item, .contact__form, .contact__card, .urgency, .trust, .cta-banner__inner, .hero__content > *, .hero__visual'
+        );
+        targets.forEach((el) => el.classList.add('reveal'));
+        const io = new IntersectionObserver(
+          (entries) => entries.forEach((e) => {
+            if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+          }),
+          { threshold: 0.12, rootMargin: '0px 0px -50px 0px' }
+        );
+        targets.forEach((el) => io.observe(el));
+
+        /* Counters */
+        const counters = document.querySelectorAll('[data-count]');
+        const cIO = new IntersectionObserver(
+          (entries) => entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const target = parseInt(el.dataset.count, 10);
+            const start = performance.now();
+            const dur = 1600;
+            const tick = (now) => {
+              const p = Math.min((now - start) / dur, 1);
+              const eased = 1 - Math.pow(1 - p, 3);
+              el.textContent = Math.floor(target * eased).toLocaleString('tr-TR');
+              if (p < 1) requestAnimationFrame(tick);
+              else el.textContent = target.toLocaleString('tr-TR');
+            };
+            requestAnimationFrame(tick);
+            cIO.unobserve(el);
+          }),
+          { threshold: 0.5 }
+        );
+        counters.forEach((c) => cIO.observe(c));
+
+        /* Smooth scroll */
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener('click', (e) => {
+            const id = link.getAttribute('href');
+            if (!id || id === '#') return;
+            const t = document.querySelector(id);
+            if (!t) return;
+            e.preventDefault();
+            const nh = nav ? nav.offsetHeight : 0;
+            const top = t.getBoundingClientRect().top + window.scrollY - nh - 12;
+            window.scrollTo({ top, behavior: 'smooth' });
+          });
+        });
+
+        /* Form → WhatsApp */
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        if (form && status) {
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const d = new FormData(form);
+            const name = (d.get('name') || '').toString().trim();
+            const phone = (d.get('phone') || '').toString().trim();
+            const service = (d.get('service') || '').toString().trim();
+            status.className = 'form-status';
+
+            if (!name || !phone || !service) {
+              status.classList.add('is-error');
+              status.textContent = '⚠️ Lütfen zorunlu alanları doldurun (Ad Soyad, Telefon, Hizmet).';
+              return;
+            }
+
+            const company = (d.get('company') || '').toString().trim();
+            const email = (d.get('email') || '').toString().trim();
+            const message = (d.get('message') || '').toString().trim();
+            const lines = [
+              '*Yeni Teklif Talebi* 🚀', '',
+              `*Ad Soyad:* ${name}`,
+              company ? `*Firma:* ${company}` : null,
+              `*Telefon:* ${phone}`,
+              email ? `*E-posta:* ${email}` : null,
+              `*Paket/Hizmet:* ${service}`,
+              message ? `\n*Mesaj:*\n${message}` : null,
+              '', '_Bu mesaj rutantasarim.com sitesinden gönderildi._',
+            ].filter(Boolean);
+            const waText = encodeURIComponent(lines.join('\n'));
+            const waUrl = `https://wa.me/905424157174?text=${waText}`;
+
+            status.classList.add('is-success');
+            status.innerHTML = '✅ Talebiniz alındı! WhatsApp\'a yönlendiriliyorsunuz...';
+            setTimeout(() => {
+              window.open(waUrl, '_blank', 'noopener');
+              form.reset();
+            }, 600);
+          });
+        }
+      }
+    })();
+  </script>
+
+  <!-- Netlify Identity Widget (admin giriş için) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- ============================================================
+       DECAP CMS / NETLIFY CMS - İçerik Yükleyici
+       Admin panelinden (/admin) gelen içerikleri yükler.
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // CMS içerik URL'leri — önce /content (klasördeki birleşik JSON),
+      // olmazsa /admin/data (Decap CMS'in yayınladığı yer) denenir
+      const CONTENT_BASE = '/content';
+      const CMS_BASE = '/admin/data';
+      const COLLECTIONS = {
+        paketler: 'paketler',
+        hizmetler: 'hizmetler',
+        neden: 'neden',
+        surec: 'surec',
+        yorumlar: 'yorumlar'
+      };
+
+      // ---------- YARDIMCI FONKSİYONLAR ----------
+      function getJSON(url) {
+        return fetch(url).then(r => {
+          if (!r.ok) throw new Error('Fetch failed: ' + url);
+          return r.json();
+        });
+      }
+
+      function formatPrice(n) {
+        try {
+          return Number(n).toLocaleString('tr-TR');
+        } catch (e) { return String(n); }
+      }
+
+      function stars(rating) {
+        const n = Math.max(1, Math.min(5, Number(rating) || 5));
+        return '★'.repeat(n) + '☆'.repeat(5 - n);
+      }
+
+      function escapeHTML(s) {
+        if (s == null) return '';
+        return String(s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      // ---------- RENDER FONKSİYONLARI ----------
+
+      // PAKETLER (fiyat kartları)
+      function renderPaketler(items) {
+        const cont = document.getElementById('pricingContainer');
+        if (!cont) return;
+        if (!items || !items.length) {
+          cont.innerHTML = '<p style="text-align:center;color:#7a85a0;padding:40px 0;">Henüz paket eklenmemiş. <a href="/admin/" style="color:#3b82f6;">Admin panelinden ekle →</a></p>';
+          return;
+        }
+        items.sort((a, b) => (a.order || 0) - (b.order || 0));
+        cont.innerHTML = items.map(p => {
+          const cls = p.featured ? 'plan plan--featured' : 'plan';
+          const ribbon = p.featured ? '<div class="plan__ribbon">En Popüler</div>' : '';
+          const btnCls = (p.buttonStyle || 'outline') === 'primary' ? 'btn btn--primary btn--block' : 'btn btn--outline btn--block';
+          const featuresHTML = (p.features || []).map(f => {
+            const state = f.active === false ? 'off' : 'on';
+            const gold = f.gold ? ' on--gold' : '';
+            return '<li class="' + state + gold + '"><span>' + escapeHTML(f.title) + '</span></li>';
+          }).join('');
+          return (
+            '<article class="' + cls + '">' +
+              ribbon +
+              '<header class="plan__head">' +
+                '<h3 class="plan__name">' + escapeHTML(p.name) + '</h3>' +
+                '<p class="plan__desc">' + escapeHTML(p.description) + '</p>' +
+                '<div class="plan__price">' +
+                  '<span class="plan__currency">₺</span>' +
+                  '<span class="plan__amount">' + formatPrice(p.price) + '</span>' +
+                '</div>' +
+                '<span class="plan__note">' + escapeHTML(p.note || 'Tek fiyat • Şeffaf • Ek ücret yok') + '</span>' +
+              '</header>' +
+              '<ul class="plan__features">' + featuresHTML + '</ul>' +
+              '<a href="#iletisim" class="' + btnCls + '">' + escapeHTML(p.buttonText || 'Paketi Seç') + '</a>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      // HİZMETLER
+      function renderHizmetler(items) {
+        const cont = document.getElementById('hizmetlerContainer');
+        if (!cont) return;
+        if (!items || !items.length) return;
+        items.sort((a, b) => (a.order || 0) - (b.order || 0));
+        cont.innerHTML = items.map(h =>
+          '<div class="why__item">' +
+            '<div class="why__icon">' + escapeHTML(h.icon || '⚡') + '</div>' +
+            '<h3>' + escapeHTML(h.title) + '</h3>' +
+            '<p>' + escapeHTML(h.description) + '</p>' +
+          '</div>'
+        ).join('');
+      }
+
+      // NEDEN BİZ (eski why bölümü)
+      function renderNeden(items) {
+        const cont = document.getElementById('whyContainer');
+        if (!cont) return;
+        if (!items || !items.length) return;
+        items.sort((a, b) => (a.order || 0) - (b.order || 0));
+        cont.innerHTML = items.map(h =>
+          '<div class="why__item">' +
+            '<div class="why__icon">' + escapeHTML(h.icon || '⚡') + '</div>' +
+            '<h3>' + escapeHTML(h.title) + '</h3>' +
+            '<p>' + escapeHTML(h.description) + '</p>' +
+          '</div>'
+        ).join('');
+      }
+
+      // SÜREÇ ADIMLARI
+      function renderSurec(items) {
+        const cont = document.getElementById('processContainer');
+        if (!cont) return;
+        if (!items || !items.length) return;
+        items.sort((a, b) => (a.order || 0) - (b.order || 0));
+        let html = '';
+        items.forEach((s, i) => {
+          html += '<div class="process__step">' +
+                    '<div class="process__num">' + escapeHTML(s.step || String(i + 1).padStart(2, '0')) + '</div>' +
+                    '<h3>' + escapeHTML(s.title) + '</h3>' +
+                    '<p>' + escapeHTML(s.description) + '</p>' +
+                  '</div>';
+          if (i < items.length - 1) html += '<div class="process__line"></div>';
+        });
+        cont.innerHTML = html;
+      }
+
+      // YORUMLAR
+      function renderYorumlar(items) {
+        const cont = document.getElementById('testimonialsContainer');
+        if (!cont) return;
+        if (!items || !items.length) return;
+        cont.innerHTML = items.map(t => {
+          const initials = (t.avatar || (t.author || '?').split(' ').map(x => x[0]).join('').slice(0, 2)).toUpperCase();
+          return (
+            '<article class="t-card">' +
+              '<div class="t-card__stars">' + stars(t.rating) + '</div>' +
+              '<p>"' + escapeHTML(t.quote) + '"</p>' +
+              '<footer>' +
+                '<div class="t-card__avatar">' + escapeHTML(initials) + '</div>' +
+                '<div>' +
+                  '<strong>' + escapeHTML(t.author) + '</strong>' +
+                  '<em>' + escapeHTML(t.company) + '</em>' +
+                '</div>' +
+              '</footer>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      // ---------- ANA YÜKLEYİCİ ----------
+      function loadCollection(name) {
+        // Önce /content/<name>.json dene (klasördeki birleşik JSON)
+        return getJSON(CONTENT_BASE + '/' + name + '.json')
+          .then(data => applyData(name, data))
+          .catch(err1 => {
+            // Olmadıysa Decap CMS data endpoint'i dene
+            return getJSON(CMS_BASE + '/' + name + '.json')
+              .then(data => applyData(name, data))
+              .catch(err2 => {
+                console.log('[' + name + '] yüklenemedi:', err1.message, '|', err2.message);
+                if (name === 'paketler') {
+                  const cont = document.getElementById('pricingContainer');
+                  if (cont) cont.innerHTML = '<p style="text-align:center;color:#7a85a0;padding:40px 0;">Paketler yükleniyor... Henüz admin panelinden paket eklenmediyse <a href="/admin/" style="color:#3b82f6;">buradan ekleyin</a>.</p>';
+                }
+              });
+          });
+      }
+
+      function applyData(name, data) {
+        // .json dosyası doğrudan array olabilir veya { entries: [...] }
+        const arr = Array.isArray(data) ? data : (data.entries || data.items || []);
+        switch (name) {
+          case 'paketler':  renderPaketler(arr); break;
+          case 'hizmetler': renderHizmetler(arr); break;
+          case 'neden':     renderNeden(arr); break;
+          case 'surec':     renderSurec(arr); break;
+          case 'yorumlar':  renderYorumlar(arr); break;
+        }
+      }
+
+      // Sayfa yüklendiğinde tüm koleksiyonları çek
+      function init() {
+        Object.keys(COLLECTIONS).forEach(name => loadCollection(name));
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>

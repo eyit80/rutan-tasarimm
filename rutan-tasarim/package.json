@@ -1,0 +1,13 @@
+{
+  "name": "rutan-tasarim-site",
+  "version": "1.0.0",
+  "description": "RUTAN TASARIM — Decap CMS entegrasyonlu statik site",
+  "private": true,
+  "scripts": {
+    "start": "npx http-server -p 8888 -c-1",
+    "build": "echo 'Static site — no build step needed'",
+    "clean": "echo 'Nothing to clean'"
+  },
+  "keywords": ["decap-cms", "netlify-cms", "static-site"],
+  "license": "MIT"
+}

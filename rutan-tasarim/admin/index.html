@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>RUTAN TASARIM — İçerik Yönetimi</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b82f6'/%3E%3Ctext x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='white' font-family='Inter,sans-serif' font-weight='800' font-size='34'%3ER%3C/text%3E%3C/svg%3E" />
+1
+    <style>
+      *,*::before,**::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; height: 100%; }
+      body {
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        background: radial-gradient(ellipse at top, #0a1020 0%, #050810 60%, #02040a 100%);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+      .gate {
+        width: min(440px, 92vw);
+        background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+        border: 1px solid #1e2a44;
+        border-radius: 20px;
+        padding: 36px 32px;
+        box-shadow: 0 20px 60px rgba(0,0,0,.5);
+        backdrop-filter: blur(8px);
+      }
+      .gate__brand {
+        display: flex; align-items: center; gap: 12px;
+        margin-bottom: 24px;
+      }
+      .gate__logo {
+        width: 44px; height: 44px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        display: grid; place-items: center;
+        font-weight: 800; font-size: 22px;
+        color: #fff;
+      }
+      .gate__title { font-size: 1.05rem; font-weight: 700; margin: 0; }
+      .gate__sub { font-size: .85rem; color: #7a85a0; margin: 2px 0 0; }
+      .gate h1 { font-size: 1.35rem; margin: 0 0 8px; font-weight: 700; }
+      .gate p { color: #b8c0d4; font-size: .92rem; margin: 0 0 24px; }
+      .gate__btn {
+        display: block;
+        width: 100%;
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 14px 20px;
+        border: 0;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: transform .15s ease, box-shadow .2s ease;
+      }
+      .gate__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(59,130,246,.35); }
+      .gate__hint {
+        margin-top: 18px;
+        font-size: .8rem;
+        color: #7a85a0;
+        text-align: center;
+      }
+      .gate__hint a { color: #3b82f6; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div class="gate">
+      <div class="gate__brand">
+        <div class="gate__logo">R</div>
+        <div>
+          <div class="gate__title">RUTAN TASARIM</div>
+          <div class="gate__sub">İçerik Yönetim Paneli</div>
+        </div>
+      </div>
+      <h1>Yönetici Girişi</h1>
+      <p>Site fiyatlarını, hizmetleri, yorumları ve yazıları buradan yönetebilirsin. GitHub hesabınla giriş yapman yeterli.</p>
+      <a href="#" class="gate__btn" onclick="loginWithGitHub(event)">GitHub ile Giriş Yap</a>
+      <div class="gate__hint">
+        İlk kez mi kullanıyorsun? <a href="https://app.netlify.com/identity" target="_blank" rel="noopener">Netlify Identity'den üye ol</a>
+      </div>
+    </div>
+    <script>
+      // Netlify Identity Widget ile giriş
+      (function() {
+        var script = document.createElement('script');
+        script.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+        script.defer = true;
+        document.head.appendChild(script);
+      })();
+
+      window.loginWithGitHub = function(e) {
+        if (e) e.preventDefault();
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.open('login');
+        } else {
+          alert('Yükleniyor, lütfen birkaç saniye sonra tekrar deneyin...');
+        }
+      };
+
+      window.addEventListener('load', function() {
+        if (!window.netlifyIdentity) return;
+        window.netlifyIdentity.on('init', function(user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function() {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "author": "Ahmet Yılmaz",
+    "company": "Yılmaz Otomotiv — İstanbul",
+    "avatar": "AY",
+    "rating": 5,
+    "quote": "Sitemizi 4 günde teslim ettiler. Google'da 3 ay içinde ilk sayfaya çıktık. Müşteri portföyümüz %200 arttı."
+  },
+  {
+    "author": "Selin Kara",
+    "company": "Kara Butik — Ankara",
+    "avatar": "SK",
+    "rating": 5,
+    "quote": "E-ticaret sitemizi sıfırdan kurdular. Tasarımı, ödeme altyapısı, SEO'su... Her şey dahil. 6 aydır sorunsuz çalışıyoruz."
+  },
+  {
+    "author": "Mehmet Özdemir",
+    "company": "Özdemir Hukuk — İzmir",
+    "avatar": "MÖ",
+    "rating": 5,
+    "quote": "Google Ads kampanyamızı yönetiyorlar. Reklam harcamamız 3'e katlandı ama satışlarımız 5'e katlandı. ROI mükemmel."
+  }
+]

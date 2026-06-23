@@ -1,0 +1,6 @@
+[
+  { "step": "01", "title": "Analiz & Planlama", "description": "Hedef kitlenizi, rakiplerinizi ve iş hedeflerinizi analiz ediyoruz. Doğru stratejiyi birlikte belirliyoruz.", "order": 1 },
+  { "step": "02", "title": "Tasarım & Geliştirme", "description": "Markanıza özel, modern ve dönüşüm odaklı tasarım. Hızlı, SEO uyumlu, mobil mükemmel.", "order": 2 },
+  { "step": "03", "title": "Test & Yayın", "description": "Tüm cihaz ve tarayıcılarda test ediyor, SEO kontrollerini yapıyor, sitenizi yayına alıyoruz.", "order": 3 },
+  { "step": "04", "title": "Destek & Optimizasyon", "description": "Yayın sonrası destek, performans takibi ve sürekli iyileştirme ile yanınızdayız.", "order": 4 }
+]
